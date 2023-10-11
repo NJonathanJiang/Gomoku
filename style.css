@@ -1,0 +1,28 @@
+body{--width:0;--height:0;}
+
+canvas{
+	position:absolute;top:0;left:0;z-index:0;
+}
+div#game-result{
+	position:absolute;top:0;left:0;z-index:1;
+	width:var(--width);height:var(--height);
+	color:white;
+	font-family:monospace;
+	font-size: calc(min(var(--width) * .05,var(--height) * .05));
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-shadow: black 0 0 5px;
+	text-align: center;
+}
+
+div#game-result[data-result="null"]{display:none;}
+
+div#game-result[data-result="win" ]{background-color:#0f66;}
+div#game-result[data-result="lose"]{background-color:#F868;}
+div#game-result[data-result="draw"]{background-color:#8888;}
+
+div#game-result[data-result="win" ]::after{content:"你赢了";}
+div#game-result[data-result="lose"]::after{content:"你输了";}
+div#game-result[data-result="draw"]::after{content:"平局";}
